@@ -1,5 +1,4 @@
-# Action upload file
-
+# Turn on EC2
  This action turn on an existing EC2 instance to AWS.
 
 ### example
