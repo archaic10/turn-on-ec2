@@ -18,12 +18,13 @@ function startInstance(instanceId) {
       InstanceIds: [instanceId]
     };
   
-    ec2.startInstances(params, function(err, data) {
+    ec2.startInstances(params, async function(err, data) {
         if (err){
             core.setFailed(err, err.stack);
             return;
         }
 
+        await ec2.waitFor('instanceRunning', { InstanceIds: [instanceId] }).promise();
         console.log('Instance started successfully:', data);
     });
 }
