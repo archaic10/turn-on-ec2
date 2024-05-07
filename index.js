@@ -24,7 +24,7 @@ function startInstance(instanceId) {
             return;
         }
 
-        console.log('Instância iniciada com sucesso:', data);
+        console.log('Instance started successfully:', data);
     });
 }
 

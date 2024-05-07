@@ -1,5 +1,5 @@
 {
-  "name": "auto-scaling",
+  "name": "turn-on-ec2",
   "version": "1.0.0",
   "description": "",
   "main": "autoscale.js",

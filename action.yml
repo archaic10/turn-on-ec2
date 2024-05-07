@@ -1,4 +1,4 @@
-name: 'On Ec2'
+name: 'Turn On Ec2'
 description: 'This action turn on an existing EC2 instance to AWS'
 inputs:
   access-key-id:
