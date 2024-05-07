@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const core = require('@actions/core')
 const accessKeyId = core.getInput('access-key-id');
 const secretAccessKey = core.getInput('secret-access-key');
 const region = core.getInput('region');
@@ -18,29 +19,35 @@ function startInstance(instanceId) {
     };
   
     ec2.startInstances(params, function(err, data) {
-      if (err) console.log(err, err.stack);
-      else console.log('Instância iniciada com sucesso:', data);
+        if (err){
+            core.setFailed(err, err.stack);
+            return;
+        }
+
+        console.log('Instância iniciada com sucesso:', data);
     });
 }
 
 function validateParams(){
     if(!accessKeyId && accessKeyId == ""){
-        console.log("access-key-id undefined!");
+        core.setFailed("access-key-id undefined!");
         return false;
     }
 
-    if(secretAccessKey){
-        console.log("secret-access-key undefined!");
+    if(!secretAccessKey && secretAccessKey == ""){
+        core.setFailed("secret-access-key undefined!");
         return false;
         
     }
-    if(region){
-        console.log("region undefined!");
+
+    if(!region && region == ""){
+        core.setFailed("region undefined!");
         return false;
         
     }
-    if(amiInstance){
-        console.log("ami-instance undefined!");
+
+    if(!amiInstance && amiInstance == ""){
+        core.setFailed("ami-instance undefined!");
         return false;
     }
     return true;
