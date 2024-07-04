@@ -56,10 +56,10 @@ with:
 ```
 
 ## Inputs 
-`access-key-id`: AWS Access Key ID (secret).
-`secret-access-key`: AWS Secret Access Key (secret).
-`region`: AWS region where the EC2 instance is located.
-`id-instance`: EC2 instance ID to be turned on.
+- `access-key-id`: AWS Access Key ID (secret).
+- `secret-access-key`: AWS Secret Access Key (secret).
+- `region`: AWS region where the EC2 instance is located.
+- `id-instance`: EC2 instance ID to be turned on.
 
 
 ## Workflow Example
